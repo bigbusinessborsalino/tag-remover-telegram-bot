@@ -8,10 +8,17 @@ from telegram.ext import Application, ContextTypes, MessageHandler, filters
 
 USERNAME_RE = re.compile(r"@\w+")
 EXTRA_SPACE_RE = re.compile(r"\s{2,}")
+URL_RE = re.compile(r"(?:https?://|www\.)\S+", re.IGNORECASE)
+
+
+def _neutralize_url(match: re.Match[str]) -> str:
+    url = match.group(0)
+    return url.replace(".", ".\u200b")
 
 
 def clean_text(text: str) -> str:
     cleaned = USERNAME_RE.sub("", text)
+    cleaned = URL_RE.sub(_neutralize_url, cleaned)
     cleaned = EXTRA_SPACE_RE.sub(" ", cleaned)
     return cleaned.strip()
 
