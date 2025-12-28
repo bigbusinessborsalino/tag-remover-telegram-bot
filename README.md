@@ -23,6 +23,30 @@ pip install -r requirements.txt
 python bot.py
 ```
 
+## Deploy on Render (free plan)
+
+1. Create a new **Web Service** on Render and connect this repository.
+2. Configure the service:
+
+   - **Runtime:** Python 3
+   - **Build Command:**
+
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+   - **Start Command:**
+
+     ```bash
+     python bot.py
+     ```
+
+   - **Environment Variables:**
+
+     - `BOT_TOKEN` = your Telegram bot token from BotFather
+
+3. Deploy the service. The free plan sleeps on inactivity, so send a message to the bot to wake it up when needed.
+
 ## Notes
 
 - Telegram does not allow programmatically removing visual watermarks that are baked into image/video files. This bot only cleans captions and resends the media to avoid the "Forwarded from" header.
