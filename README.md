@@ -1,3 +1,4 @@
+codex/create-telegram-bot-to-format-messages
 # tag-remover-telegram-bot
 
 A Telegram bot that re-sends messages to remove the forwarded header, strip `@username` tags from captions/text, and remove embedded link entities so the text appears as plain text.
@@ -43,7 +44,7 @@ python bot.py
 
    - **Environment Variables:**
 
-     - `BOT_TOKEN` = your Telegram bot token from BotFather
+   - `BOT_TOKEN` = your Telegram bot token from BotFather
 
 3. Deploy the service. The free plan sleeps on inactivity, so send a message to the bot to wake it up when needed.
 
@@ -51,3 +52,5 @@ python bot.py
 
 - Telegram does not allow programmatically removing visual watermarks that are baked into image/video files. This bot only cleans captions and resends the media to avoid the "Forwarded from" header.
 - The bot re-sends received messages without link entities, so any text that was previously a clickable link becomes plain text.
+ss
+main
